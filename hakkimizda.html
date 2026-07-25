@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = { theme: { extend: { fontFamily: { sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'], display: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'] }, colors: { brand: { 50: '#eff6ff', 100: '#dbeafe', 200: '#bfdbfe', 300: '#93c5fd', 400: '#60a5fa', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 800: '#1e40af', 900: '#1e3a8a' }, ink: '#101a2c' } } } }
+        tailwind.config = { theme: { extend: { fontFamily: { sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'], display: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'] }, colors: { blue: { 50: '#eef2f8', 100: '#dbe4f0', 200: '#b6c9e0', 300: '#8ba9cc', 400: '#5c82ae', 500: '#3c6190', 600: '#1e3a5f', 700: '#152a45', 800: '#101f33', 900: '#0a1522' }, brand: { 50: '#eff6ff', 100: '#dbeafe', 200: '#bfdbfe', 300: '#93c5fd', 400: '#60a5fa', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 800: '#1e40af', 900: '#1e3a8a' }, ink: '#101a2c' } } } }
     </script>
     <style>
         html { scroll-behavior: smooth; overflow-x: hidden; } body { overflow-x: hidden; max-width: 100%; } img { max-width: 100%; }
@@ -36,7 +36,7 @@
         #mobileOverlay .m-link { opacity: 0; transform: translateY(14px); transition: opacity 0.4s ease, transform 0.4s ease; }
         #mobileOverlay.open .m-link { opacity: 1; transform: translateY(0); }
         #mobileOverlay.open .m-link:nth-child(1) { transition-delay: 80ms; } #mobileOverlay.open .m-link:nth-child(2) { transition-delay: 130ms; } #mobileOverlay.open .m-link:nth-child(3) { transition-delay: 180ms; } #mobileOverlay.open .m-link:nth-child(4) { transition-delay: 230ms; } #mobileOverlay.open .m-link:nth-child(5) { transition-delay: 280ms; }
-        .placeholder-media { background: linear-gradient(155deg, #1e3a8a 0%, #2563eb 55%, #3b82f6 100%); }
+        .placeholder-media { background: linear-gradient(155deg, #0a1522 0%, #1e3a5f 55%, #3c6190 100%); }
     </style>
     <script type="application/ld+json">
     { "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [ { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": "https://silivridizayntasimacilik.com/" }, { "@type": "ListItem", "position": 2, "name": "Hakkımızda", "item": "https://silivridizayntasimacilik.com/hakkimizda" } ] }
@@ -65,7 +65,7 @@
             </div>
             <div class="hidden lg:flex items-center gap-5">
                 <a href="tel:+905392946066" class="text-sm font-bold flex items-center gap-2"><i class="ti ti-phone text-base"></i>0539 294 60 66</a>
-                <a href="/#teklif" class="text-xs font-bold uppercase tracking-widest text-white bg-blue-600 hover:bg-blue-700 px-5 py-3 rounded-sm transition-colors">Teklif Al</a>
+                <a href="/#teklif" class="text-xs font-bold uppercase tracking-widest text-white bg-blue-600 hover:bg-blue-700 px-5 py-3 rounded-lg transition-colors">Teklif Al</a>
             </div>
             <button id="menuBtn" class="lg:hidden p-2" aria-label="Menüyü aç"><i class="ti ti-menu-2 text-2xl"></i></button>
         </div>
@@ -105,8 +105,8 @@
                     <p>Ekibimiz, evden eve nakliyattan mobilya montajına kadar geniş bir hizmet yelpazesinde uzmanlaşmıştır. Şehir içi ve şehirler arası mobilya kurulum hizmetimizle, Türkiye'nin her noktasındaki müşterilerimize ulaşabiliyoruz.</p>
                     <p>Sigortalı taşıma, şeffaf fiyatlandırma ve zamanında teslimat ilkelerimizle, Silivri'de tercih edilen bir isim olmayı sürdürüyoruz.</p>
                 </div>
-                <div class="lg:col-span-5 rounded-sm overflow-hidden placeholder-media h-[320px] flex items-center justify-center reveal reveal-d1">
-                    <i class="ti ti-building-warehouse text-8xl text-white/25"></i>
+                <div class="lg:col-span-5 rounded-lg overflow-hidden h-[320px] reveal reveal-d1">
+                    <img src="/assets/hakkimizda-1.jpg" alt="Silivri Dizayn Taşımacılık ekibi" class="w-full h-full object-cover">
                 </div>
             </div>
         </section>
@@ -141,8 +141,8 @@
                 <div class="reveal reveal-d1">
                     <p class="text-zinc-400 mb-8 max-w-md">Taşınma veya mobilya kurulum ihtiyacınız için hemen iletişime geçin.</p>
                     <div class="flex flex-wrap gap-4">
-                        <a href="tel:+905392946066" class="inline-flex items-center gap-3 px-8 py-4 bg-blue-600 text-white font-bold rounded-sm hover:bg-blue-700 transition-all"><i class="ti ti-phone text-lg"></i>0539 294 60 66</a>
-                        <a href="https://wa.me/905392946066" target="_blank" rel="nofollow noopener noreferrer" class="inline-flex items-center gap-3 px-8 py-4 border border-white/30 text-white font-bold rounded-sm hover:bg-white/10 transition-all"><i class="ti ti-brand-whatsapp text-lg"></i>WhatsApp</a>
+                        <a href="tel:+905392946066" class="inline-flex items-center gap-3 px-8 py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-all"><i class="ti ti-phone text-lg"></i>0539 294 60 66</a>
+                        <a href="https://wa.me/905392946066" target="_blank" rel="nofollow noopener noreferrer" class="inline-flex items-center gap-3 px-8 py-4 border border-white/30 text-white font-bold rounded-lg hover:bg-white/10 transition-all"><i class="ti ti-brand-whatsapp text-lg"></i>WhatsApp</a>
                     </div>
                 </div>
             </div>

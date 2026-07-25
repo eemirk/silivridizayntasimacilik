@@ -34,6 +34,7 @@
                 extend: {
                     fontFamily: { sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'], display: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'] },
                     colors: {
+                        blue: { 50: '#eef2f8', 100: '#dbe4f0', 200: '#b6c9e0', 300: '#8ba9cc', 400: '#5c82ae', 500: '#3c6190', 600: '#1e3a5f', 700: '#152a45', 800: '#101f33', 900: '#0a1522' },
                         brand: { 50: '#eff6ff', 100: '#dbeafe', 200: '#bfdbfe', 300: '#93c5fd', 400: '#60a5fa', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 800: '#1e40af', 900: '#1e3a8a' },
                         ink: '#101a2c'
                     }
@@ -64,10 +65,28 @@
         #mobileOverlay.open .m-link { opacity: 1; transform: translateY(0); }
         #mobileOverlay.open .m-link:nth-child(1) { transition-delay: 80ms; } #mobileOverlay.open .m-link:nth-child(2) { transition-delay: 130ms; } #mobileOverlay.open .m-link:nth-child(3) { transition-delay: 180ms; } #mobileOverlay.open .m-link:nth-child(4) { transition-delay: 230ms; } #mobileOverlay.open .m-link:nth-child(5) { transition-delay: 280ms; }
 
-        .placeholder-media { background: linear-gradient(155deg, #1e3a8a 0%, #2563eb 55%, #3b82f6 100%); }
+        .placeholder-media { background: linear-gradient(155deg, #0a1522 0%, #1e3a5f 55%, #3c6190 100%); }
 
         .num-row:hover .num-arrow { transform: translateX(4px); opacity: 1; }
         .num-arrow { transition: transform 0.25s ease, opacity 0.25s ease; opacity: 0.4; }
+
+        @keyframes arrowBounce { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(6px); } }
+        .arrow-bounce { display: inline-block; animation: arrowBounce 1.3s ease-in-out infinite; }
+
+        @keyframes phoneShake { 0%, 100% { transform: rotate(0deg); } 20% { transform: rotate(-16deg); } 40% { transform: rotate(13deg); } 60% { transform: rotate(-9deg); } 80% { transform: rotate(6deg); } }
+        .group:hover .phone-shake-hover { animation: phoneShake 0.5s ease-in-out; display: inline-block; }
+
+        @keyframes countUpReveal { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .counter { display: inline-block; }
+
+        #truckIntro { position: fixed; inset: 0; z-index: 200; background: #f4f6f9; overflow: hidden; animation: introHide 0.5s ease 1.5s forwards; }
+        #truckIntro .truck-icon { position: absolute; top: 50%; left: -20%; transform: translateY(-50%); animation: truckDrive 1.4s cubic-bezier(0.7,0,0.3,1) forwards; }
+        @keyframes truckDrive { 0% { left: -20%; } 100% { left: 110%; } }
+        @keyframes introHide { to { opacity: 0; visibility: hidden; pointer-events: none; } }
+        @media (prefers-reduced-motion: reduce) {
+            #truckIntro { display: none; }
+            .arrow-bounce { animation: none; }
+        }
     </style>
 
     <script type="application/ld+json">
@@ -111,6 +130,11 @@
 </head>
 <body class="bg-white text-ink font-sans antialiased">
 
+    <!-- ============ INTRO ANIMATION ============ -->
+    <div id="truckIntro" aria-hidden="true">
+        <i class="ti ti-truck-delivery truck-icon" style="font-size: 5rem; color: #1e3a5f;"></i>
+    </div>
+
     <!-- ============ HEADER ============ -->
     <header id="siteHeader" class="fixed top-0 left-0 right-0 z-50 transition-colors duration-300">
         <div class="max-w-[1400px] mx-auto px-6 lg:px-10 h-20 flex items-center justify-between">
@@ -135,7 +159,7 @@
             </div>
             <div class="hidden lg:flex items-center gap-5">
                 <a href="tel:+905392946066" class="nav-link text-sm font-bold flex items-center gap-2"><i class="ti ti-phone text-base nav-icon"></i>0539 294 60 66</a>
-                <a href="#teklif" class="text-xs font-bold uppercase tracking-widest text-white bg-blue-600 hover:bg-blue-700 px-5 py-3 rounded-sm transition-colors">Teklif Al</a>
+                <a href="#teklif" class="text-xs font-bold uppercase tracking-widest text-white bg-blue-600 hover:bg-blue-700 px-5 py-3 rounded-lg transition-colors">Teklif Al</a>
             </div>
             <button id="menuBtn" class="lg:hidden nav-link p-2" aria-label="Menüyü aç"><i class="ti ti-menu-2 text-2xl"></i></button>
         </div>
@@ -170,26 +194,28 @@
                     <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-semibold leading-[1.05] mb-6">Evden eve nakliyatta güvenin adı.</h1>
                     <p class="text-lg text-zinc-500 leading-relaxed mb-10 max-w-md">Evden eve taşımacılık, şehir içi ve şehirler arası mobilya kurulum — hepsi sigortalı ve garantili hizmet anlayışıyla.</p>
                     <div class="flex flex-wrap items-center gap-6">
-                        <a href="tel:+905392946066" class="inline-flex items-center gap-3 px-8 py-4 bg-blue-600 text-white font-bold rounded-sm hover:bg-blue-700 active:scale-[0.98] transition-all"><i class="ti ti-phone text-lg"></i>Hemen Ara</a>
-                        <a href="#teklif" class="inline-flex items-center gap-2 text-ink font-semibold border-b-2 border-ink pb-1 hover:border-blue-600 hover:text-blue-600 transition-colors">Ücretsiz Teklif Al<i class="ti ti-arrow-right"></i></a>
+                        <a href="tel:+905392946066" class="group inline-flex items-center gap-3 px-8 py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 active:scale-[0.98] transition-all"><i class="ti ti-phone text-lg phone-shake-hover"></i>Hemen Ara</a>
+                        <a href="#teklif" class="inline-flex items-center gap-2 text-ink font-semibold border-b-2 border-ink pb-1 hover:border-blue-600 hover:text-blue-600 transition-colors">Ücretsiz Teklif Al<i class="ti ti-arrow-right arrow-bounce"></i></a>
                     </div>
                 </div>
             </div>
-            <div class="relative overflow-hidden min-h-[45vh] lg:min-h-full order-1 lg:order-2">
-                <button class="hero-slide absolute inset-0 w-full placeholder-media flex items-center justify-center opacity-100 transition-opacity duration-700 cursor-pointer" data-slide="0" aria-label="Sonraki görsel">
-                    <i class="ti ti-home-move text-[9rem] lg:text-[13rem] text-white/15"></i>
-                </button>
-                <button class="hero-slide absolute inset-0 w-full flex items-center justify-center opacity-0 transition-opacity duration-700 cursor-pointer" data-slide="1" style="background:linear-gradient(155deg,#1e40af 0%,#2563eb 55%,#60a5fa 100%);" aria-label="Sonraki görsel">
-                    <i class="ti ti-tools text-[9rem] lg:text-[13rem] text-white/15"></i>
-                </button>
-                <button class="hero-slide absolute inset-0 w-full flex items-center justify-center opacity-0 transition-opacity duration-700 cursor-pointer" data-slide="2" style="background:linear-gradient(155deg,#1e3a8a 0%,#1d4ed8 55%,#3b82f6 100%);" aria-label="Sonraki görsel">
-                    <i class="ti ti-map-2 text-[9rem] lg:text-[13rem] text-white/15"></i>
-                </button>
-                <div class="absolute left-6 lg:-left-10 bottom-8 lg:bottom-14 bg-white rounded-sm shadow-2xl px-7 py-6 max-w-[220px] z-10 pointer-events-none">
+            <div class="relative min-h-[45vh] lg:min-h-full order-1 lg:order-2">
+                <div class="absolute inset-0 overflow-hidden">
+                    <button class="hero-slide absolute inset-0 w-full opacity-100 transition-opacity duration-700 cursor-pointer" data-slide="0" aria-label="Sonraki görsel">
+                        <img src="/assets/hero-nakliyat-1.jpg" alt="Silivri evden eve nakliyat" class="w-full h-full object-cover">
+                    </button>
+                    <button class="hero-slide absolute inset-0 w-full opacity-0 transition-opacity duration-700 cursor-pointer" data-slide="1" aria-label="Sonraki görsel">
+                        <img src="/assets/mobilya-kurulum-1.jpg" alt="Silivri mobilya kurulum" class="w-full h-full object-cover">
+                    </button>
+                    <button class="hero-slide absolute inset-0 w-full opacity-0 transition-opacity duration-700 cursor-pointer" data-slide="2" aria-label="Sonraki görsel">
+                        <img src="/assets/sehirler-arasi-1.jpg" alt="Şehirler arası mobilya kurulum ve taşımacılık" class="w-full h-full object-cover">
+                    </button>
+                </div>
+                <div class="absolute left-6 lg:left-6 bottom-8 lg:bottom-14 bg-white rounded-lg shadow-2xl px-7 py-6 max-w-[220px] z-20 pointer-events-none">
                     <p class="font-display text-3xl font-semibold text-ink mb-1">7/24</p>
                     <p class="text-xs uppercase tracking-widest text-zinc-400">Kesintisiz Hizmet</p>
                 </div>
-                <div class="absolute bottom-6 right-6 flex gap-2 z-10" id="heroDots">
+                <div class="absolute bottom-6 right-6 flex gap-2 z-20" id="heroDots">
                     <button class="hero-dot w-2.5 h-2.5 rounded-full bg-white transition-all" data-goto="0" aria-label="1. görsele git"></button>
                     <button class="hero-dot w-2.5 h-2.5 rounded-full bg-white/40 transition-all" data-goto="1" aria-label="2. görsele git"></button>
                     <button class="hero-dot w-2.5 h-2.5 rounded-full bg-white/40 transition-all" data-goto="2" aria-label="3. görsele git"></button>
@@ -276,15 +302,15 @@
         <section class="py-16 px-6 lg:px-16 bg-white">
             <div class="max-w-[1400px] mx-auto flex flex-wrap divide-x divide-zinc-200">
                 <div class="flex-1 min-w-[45%] sm:min-w-0 px-6 first:pl-0 reveal">
-                    <p class="font-display text-4xl md:text-5xl font-semibold mb-1">7/24</p>
+                    <p class="font-display text-4xl md:text-5xl font-semibold mb-1"><span class="counter" data-target="7" data-suffix="/24">0</span></p>
                     <p class="text-zinc-400 text-xs uppercase tracking-widest">Kesintisiz Hizmet</p>
                 </div>
                 <div class="flex-1 min-w-[45%] sm:min-w-0 px-6 reveal reveal-d1">
-                    <p class="font-display text-4xl md:text-5xl font-semibold mb-1">%100</p>
+                    <p class="font-display text-4xl md:text-5xl font-semibold mb-1"><span class="counter" data-target="100" data-prefix="%">0</span></p>
                     <p class="text-zinc-400 text-xs uppercase tracking-widest">Sigortalı Taşıma</p>
                 </div>
                 <div class="flex-1 min-w-[45%] sm:min-w-0 px-6 reveal reveal-d2">
-                    <p class="font-display text-4xl md:text-5xl font-semibold mb-1">3+</p>
+                    <p class="font-display text-4xl md:text-5xl font-semibold mb-1"><span class="counter" data-target="3" data-suffix="+">0</span></p>
                     <p class="text-zinc-400 text-xs uppercase tracking-widest">Hizmet Bölgesi İlçe</p>
                 </div>
                 <div class="flex-1 min-w-[45%] sm:min-w-0 px-6 reveal reveal-d3">
@@ -305,7 +331,7 @@
                         <p class="text-xs uppercase tracking-widest text-zinc-400">İstikbal — Silivri & Büyükçekmece Şubesi</p>
                     </div>
                     <div class="flex flex-col items-center justify-center gap-4 py-12 border-b sm:border-b-0 sm:border-r border-zinc-200 reveal reveal-d1">
-                        <img src="/assets/bellona.webp" alt="Bellona Silivri Şubesi" class="h-14 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300">
+                        <img src="/assets/bellona.png" alt="Bellona Silivri Şubesi" class="h-14 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300">
                         <p class="text-xs uppercase tracking-widest text-zinc-400">Bellona — Silivri Şubesi</p>
                     </div>
                     <div class="flex flex-col items-center justify-center gap-4 py-12 border-zinc-200 reveal reveal-d2">
@@ -354,8 +380,8 @@
                 <div class="reveal reveal-d1">
                     <p class="text-zinc-400 mb-8 max-w-md">Taşınma veya mobilya kurulum ihtiyacınız için hemen bizi arayın veya WhatsApp'tan yazın.</p>
                     <div class="flex flex-wrap gap-4">
-                        <a href="tel:+905392946066" class="inline-flex items-center gap-3 px-8 py-4 bg-blue-600 text-white font-bold rounded-sm hover:bg-blue-700 active:scale-[0.98] transition-all"><i class="ti ti-phone text-lg"></i>0539 294 60 66</a>
-                        <a href="https://wa.me/905392946066?text=Merhaba%2C%20Silivri%20evden%20eve%20nakliyat%20teklifi%20almak%20istiyorum." target="_blank" rel="nofollow noopener noreferrer" class="inline-flex items-center gap-3 px-8 py-4 border border-white/30 text-white font-bold rounded-sm hover:bg-white/10 active:scale-[0.98] transition-all"><i class="ti ti-brand-whatsapp text-lg"></i>WhatsApp</a>
+                        <a href="tel:+905392946066" class="inline-flex items-center gap-3 px-8 py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 active:scale-[0.98] transition-all"><i class="ti ti-phone text-lg"></i>0539 294 60 66</a>
+                        <a href="https://wa.me/905392946066?text=Merhaba%2C%20Silivri%20evden%20eve%20nakliyat%20teklifi%20almak%20istiyorum." target="_blank" rel="nofollow noopener noreferrer" class="inline-flex items-center gap-3 px-8 py-4 border border-white/30 text-white font-bold rounded-lg hover:bg-white/10 active:scale-[0.98] transition-all"><i class="ti ti-brand-whatsapp text-lg"></i>WhatsApp</a>
                     </div>
                 </div>
             </div>
@@ -456,6 +482,36 @@
                 }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
                 var revealEls = document.querySelectorAll('.reveal');
                 for (var j = 0; j < revealEls.length; j++) { observer.observe(revealEls[j]); }
+            }
+
+            var counters = document.querySelectorAll('.counter');
+            if (counters.length) {
+                var counterObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (!entry.isIntersecting) return;
+                        var el = entry.target;
+                        var target = parseInt(el.getAttribute('data-target'), 10);
+                        var prefix = el.getAttribute('data-prefix') || '';
+                        var suffix = el.getAttribute('data-suffix') || '';
+                        if (prefersReducedMotion) {
+                            el.textContent = prefix + target + suffix;
+                        } else {
+                            var duration = 1200;
+                            var startTime = null;
+                            var step = function(ts) {
+                                if (!startTime) startTime = ts;
+                                var progress = Math.min((ts - startTime) / duration, 1);
+                                var value = Math.floor(progress * target);
+                                el.textContent = prefix + value + suffix;
+                                if (progress < 1) requestAnimationFrame(step);
+                                else el.textContent = prefix + target + suffix;
+                            };
+                            requestAnimationFrame(step);
+                        }
+                        counterObserver.unobserve(el);
+                    });
+                }, { threshold: 0.5 });
+                for (var k = 0; k < counters.length; k++) { counterObserver.observe(counters[k]); }
             }
         })();
     </script>
