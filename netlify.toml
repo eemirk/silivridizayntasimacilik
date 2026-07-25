@@ -1,0 +1,54 @@
+[build]
+  publish = "."
+
+# Pretty URLs - .html olmadan erişim
+[[redirects]]
+  from = "/silivri-evden-eve-nakliyat"
+  to = "/silivri-evden-eve-nakliyat.html"
+  status = 200
+
+[[redirects]]
+  from = "/silivri-sehir-ici-mobilya-kurulum"
+  to = "/silivri-sehir-ici-mobilya-kurulum.html"
+  status = 200
+
+[[redirects]]
+  from = "/silivri-sehirler-arasi-mobilya-kurulum"
+  to = "/silivri-sehirler-arasi-mobilya-kurulum.html"
+  status = 200
+
+[[redirects]]
+  from = "/hizmetler"
+  to = "/hizmetler.html"
+  status = 200
+
+[[redirects]]
+  from = "/hakkimizda"
+  to = "/hakkimizda.html"
+  status = 200
+
+[[redirects]]
+  from = "/iletisim"
+  to = "/iletisim.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog"
+  to = "/blog.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog/silivri-evden-eve-nakliyat-fiyatlarini-etkileyen-faktorler"
+  to = "/blog/silivri-evden-eve-nakliyat-fiyatlarini-etkileyen-faktorler.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog/mobilya-montajinda-dikkat-edilmesi-gereken-noktalar"
+  to = "/blog/mobilya-montajinda-dikkat-edilmesi-gereken-noktalar.html"
+  status = 200
+
+# Headers for performance
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

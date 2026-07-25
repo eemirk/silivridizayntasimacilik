@@ -1,0 +1,11 @@
+{
+  "name": "Silivri Dizayn Mobilya Kurulum & Taşımacılık",
+  "short_name": "Silivri Dizayn",
+  "icons": [
+    { "src": "/assets/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ],
+  "theme_color": "#101a2c",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "start_url": "/"
+}

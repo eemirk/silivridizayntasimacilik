@@ -1,0 +1,15 @@
+Options -Indexes
+RewriteEngine On
+
+# HTTPS zorla
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+# .html uzantisi olmadan temiz URL erisimi
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+)$ $1.html [L]
+
+# 404 sayfasi
+ErrorDocument 404 /404.html
