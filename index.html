@@ -69,13 +69,13 @@
         @keyframes countUpReveal { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         .counter { display: inline-block; }
 
-        .hero-cover { background: #101a2c; clip-path: inset(0 0 0 0); animation: heroWipe 1.5s cubic-bezier(0.7,0,0.3,1) 0.15s forwards; }
-        .hero-truck-icon { top: 50%; left: -15%; transform: translateY(-50%); font-size: 4.5rem; color: #ffffff; animation: heroTruckDrive 1.5s cubic-bezier(0.7,0,0.3,1) 0.15s forwards; }
-        @keyframes heroWipe { to { clip-path: inset(0 0 0 100%); } }
-        @keyframes heroTruckDrive { to { left: 110%; } }
+        .hero-h { height: 100vh; height: 100dvh; }
+        #scrollyProgress { transition: height 0.1s linear; }
+        @keyframes scrollyHintBounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(4px); } }
+        .scrolly-hint-bounce { display: inline-block; animation: scrollyHintBounce 1.4s ease-in-out infinite; }
         @media (prefers-reduced-motion: reduce) {
-            .hero-cover, .hero-truck-icon { display: none; }
             .arrow-bounce { animation: none; }
+            .scrolly-hint-bounce { animation: none; }
         }
     </style>
 
@@ -132,18 +132,18 @@
                     <a href="/hizmetler" class="nav-link text-[13px] font-semibold uppercase tracking-widest hover:opacity-60 transition-opacity flex items-center gap-1.5">Hizmetler<i class="ti ti-chevron-down text-[10px] transition-transform group-hover:rotate-180"></i></a>
                     <div class="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                         <div class="bg-white rounded-lg shadow-xl border border-zinc-100 py-2 w-72">
-                            <a href="/silivri-evden-eve-nakliyat" class="block px-5 py-3 text-sm text-zinc-600 hover:text-ink hover:bg-zinc-50 transition-colors">Evden Eve Nakliyat</a>
-                            <a href="/silivri-sehir-ici-mobilya-kurulum" class="block px-5 py-3 text-sm text-zinc-600 hover:text-ink hover:bg-zinc-50 transition-colors">Şehir İçi Mobilya Kurulum</a>
-                            <a href="/silivri-sehirler-arasi-mobilya-kurulum" class="block px-5 py-3 text-sm text-zinc-600 hover:text-ink hover:bg-zinc-50 transition-colors">Şehirler Arası Mobilya Kurulum</a>
+                            <a href="/silivri-evden-eve-nakliyat" class="block px-5 py-3 text-sm whitespace-nowrap text-zinc-600 hover:text-ink hover:bg-zinc-50 transition-colors">Evden Eve Nakliyat</a>
+                            <a href="/silivri-sehir-ici-mobilya-kurulum" class="block px-5 py-3 text-sm whitespace-nowrap text-zinc-600 hover:text-ink hover:bg-zinc-50 transition-colors">Şehir İçi Mobilya Kurulum</a>
+                            <a href="/silivri-sehirler-arasi-mobilya-kurulum" class="block px-5 py-3 text-sm whitespace-nowrap text-zinc-600 hover:text-ink hover:bg-zinc-50 transition-colors">Şehirler Arası Mobilya Kurulum</a>
                         </div>
                     </div>
                 </div>
                 <div class="relative group">
                     <button class="nav-link text-[13px] font-semibold uppercase tracking-widest hover:opacity-60 transition-opacity flex items-center gap-1.5">Kurumsal<i class="ti ti-chevron-down text-[10px] transition-transform group-hover:rotate-180"></i></button>
                     <div class="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                        <div class="bg-white rounded-lg shadow-xl border border-zinc-100 py-2 w-56">
-                            <a href="/hakkimizda" class="block px-5 py-3 text-sm text-zinc-600 hover:text-ink hover:bg-zinc-50 transition-colors">Hakkımızda</a>
-                            <a href="/sss" class="block px-5 py-3 text-sm text-zinc-600 hover:text-ink hover:bg-zinc-50 transition-colors">Sıkça Sorulan Sorular</a>
+                        <div class="bg-white rounded-lg shadow-xl border border-zinc-100 py-2 w-64">
+                            <a href="/hakkimizda" class="block px-5 py-3 text-sm whitespace-nowrap text-zinc-600 hover:text-ink hover:bg-zinc-50 transition-colors">Hakkımızda</a>
+                            <a href="/sss" class="block px-5 py-3 text-sm whitespace-nowrap text-zinc-600 hover:text-ink hover:bg-zinc-50 transition-colors">Sıkça Sorulan Sorular</a>
                         </div>
                     </div>
                 </div>
@@ -181,11 +181,7 @@
 
     <main>
         <!-- ============ FULL-BLEED EDITORIAL HERO ============ -->
-        <section class="relative h-[100dvh] overflow-hidden">
-            <!-- truck-drags-in reveal -->
-            <div class="hero-cover absolute inset-0 z-40 pointer-events-none" aria-hidden="true"></div>
-            <i class="ti ti-truck-delivery hero-truck-icon absolute z-40 pointer-events-none" aria-hidden="true"></i>
-
+        <section class="relative hero-h overflow-hidden">
             <div class="absolute inset-0">
                 <button class="hero-slide absolute inset-0 w-full h-full opacity-100 transition-opacity duration-1000 cursor-pointer" data-slide="0" aria-label="Sonraki görsel">
                     <img src="/assets/hero-nakliyat-1.webp" alt="Silivri evden eve nakliyat" width="1024" height="576" fetchpriority="high" class="w-full h-full object-cover">
@@ -246,10 +242,14 @@
                             <div class="col-span-2">
                                 <span id="scrollyNum" class="font-display text-2xl font-bold tracking-widest text-blue-600">01</span>
                                 <span class="block text-[11px] uppercase tracking-[0.2em] text-zinc-400 mt-2">Hizmet</span>
-                                <div class="flex flex-col gap-2.5 mt-8">
-                                    <span class="scrolly-dot w-2 h-2 rounded-full bg-blue-600 transition-colors" data-dot="0"></span>
-                                    <span class="scrolly-dot w-2 h-2 rounded-full bg-zinc-200 transition-colors" data-dot="1"></span>
-                                    <span class="scrolly-dot w-2 h-2 rounded-full bg-zinc-200 transition-colors" data-dot="2"></span>
+                                <div class="relative w-0.5 h-24 bg-zinc-200 rounded-full mt-8 ml-1">
+                                    <div id="scrollyProgress" class="absolute top-0 left-0 w-full bg-blue-600 rounded-full" style="height:0%"></div>
+                                    <span class="scrolly-dot absolute -left-[3px] w-2 h-2 rounded-full bg-blue-600 transition-colors" data-dot="0" style="top:0;"></span>
+                                    <span class="scrolly-dot absolute -left-[3px] w-2 h-2 rounded-full bg-zinc-300 transition-colors" data-dot="1" style="top:calc(50% - 4px);"></span>
+                                    <span class="scrolly-dot absolute -left-[3px] w-2 h-2 rounded-full bg-zinc-300 transition-colors" data-dot="2" style="bottom:0;"></span>
+                                </div>
+                                <div id="scrollyHint" class="flex items-center gap-2 mt-6 text-[11px] uppercase tracking-widest text-zinc-400 transition-opacity duration-300">
+                                    <i class="ti ti-mouse text-base scrolly-hint-bounce"></i>Kaydırın
                                 </div>
                             </div>
                             <div class="col-span-5 relative" style="min-height: 220px;">
@@ -270,9 +270,9 @@
                                 </div>
                             </div>
                             <div class="col-span-5 relative rounded-[26px] overflow-hidden shadow-[0_3px_10px_rgba(0,0,0,0.15)]" style="height: 60vh;">
-                                <img class="scrolly-img absolute inset-0 w-full h-full object-cover transition-opacity duration-500" data-panel="0" style="opacity:1;" src="/assets/hero-nakliyat-1.webp" alt="Evden Eve Nakliyat" width="1024" height="576" loading="lazy">
-                                <img class="scrolly-img absolute inset-0 w-full h-full object-cover transition-opacity duration-500" data-panel="1" style="opacity:0;" src="/assets/mobilya-kurulum-1.webp" alt="Şehir İçi Mobilya Kurulum" width="1024" height="576" loading="lazy">
-                                <img class="scrolly-img absolute inset-0 w-full h-full object-cover transition-opacity duration-500" data-panel="2" style="opacity:0;" src="/assets/sehirler-arasi-1.webp" alt="Şehirler Arası Mobilya Kurulum" width="1024" height="576" loading="lazy">
+                                <img class="scrolly-img absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-out" data-panel="0" style="opacity:1; transform:scale(1);" src="/assets/hero-nakliyat-1.webp" alt="Evden Eve Nakliyat" width="1024" height="576" loading="lazy">
+                                <img class="scrolly-img absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-out" data-panel="1" style="opacity:0; transform:scale(1.08);" src="/assets/mobilya-kurulum-1.webp" alt="Şehir İçi Mobilya Kurulum" width="1024" height="576" loading="lazy">
+                                <img class="scrolly-img absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-out" data-panel="2" style="opacity:0; transform:scale(1.08);" src="/assets/sehirler-arasi-1.webp" alt="Şehirler Arası Mobilya Kurulum" width="1024" height="576" loading="lazy">
                             </div>
                         </div>
                     </div>
@@ -612,6 +612,8 @@
                 var scrollyImgs = document.querySelectorAll('.scrolly-img');
                 var scrollyDots = document.querySelectorAll('.scrolly-dot');
                 var scrollyNum = document.getElementById('scrollyNum');
+                var scrollyProgress = document.getElementById('scrollyProgress');
+                var scrollyHint = document.getElementById('scrollyHint');
                 var scrollyLabels = ['01', '02', '03'];
                 var scrollyCurrent = 0;
 
@@ -621,13 +623,15 @@
                     var scrolled = Math.min(Math.max(-rect.top, 0), total);
                     var progress = total > 0 ? scrolled / total : 0;
                     var step = Math.min(Math.floor(progress * 3), 2);
+                    if (scrollyProgress) scrollyProgress.style.height = (progress * 100) + '%';
+                    if (scrollyHint) scrollyHint.style.opacity = progress > 0.04 ? '0' : '1';
                     if (step !== scrollyCurrent || progress === 0) {
                         scrollyCurrent = step;
                         scrollyPanels.forEach(function(p, i) { p.style.opacity = (i === step) ? '1' : '0'; });
-                        scrollyImgs.forEach(function(im, i) { im.style.opacity = (i === step) ? '1' : '0'; });
+                        scrollyImgs.forEach(function(im, i) { im.style.opacity = (i === step) ? '1' : '0'; im.style.transform = (i === step) ? 'scale(1)' : 'scale(1.08)'; });
                         scrollyDots.forEach(function(d, i) {
                             d.classList.toggle('bg-blue-600', i === step);
-                            d.classList.toggle('bg-zinc-200', i !== step);
+                            d.classList.toggle('bg-zinc-300', i !== step);
                         });
                         if (scrollyNum) scrollyNum.textContent = scrollyLabels[step];
                     }
