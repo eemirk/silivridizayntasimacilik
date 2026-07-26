@@ -1,0 +1,11 @@
+{
+  "name": "silivri-dizayn-tasimacilik",
+  "private": true,
+  "scripts": {
+    "build": "tailwindcss -i ./src/input.css -o ./assets/styles.css --minify"
+  },
+  "devDependencies": {
+    "sharp": "^0.35.3",
+    "tailwindcss": "^3.4.13"
+  }
+}
