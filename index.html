@@ -67,9 +67,6 @@
 
         .placeholder-media { background: linear-gradient(155deg, #0a1522 0%, #1e3a5f 55%, #3c6190 100%); }
 
-        .num-row:hover .num-arrow { transform: translateX(4px); opacity: 1; }
-        .num-arrow { transition: transform 0.25s ease, opacity 0.25s ease; opacity: 0.4; }
-
         @keyframes arrowBounce { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(6px); } }
         .arrow-bounce { display: inline-block; animation: arrowBounce 1.3s ease-in-out infinite; }
 
@@ -223,40 +220,60 @@
             </div>
         </section>
 
-        <!-- ============ SERVICES — NUMBERED LIST ============ -->
-        <section id="hizmetler" class="py-20 px-6 lg:px-16 bg-white">
+        <!-- ============ SERVICES — editorial numbered sections ============ -->
+        <section id="hizmetler" class="py-20 md:py-24 px-6 lg:px-16 bg-white">
             <div class="max-w-[1400px] mx-auto">
-                <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-16">
-                    <div>
-                        <p class="text-[11px] uppercase tracking-[0.3em] text-blue-600 font-bold mb-4 reveal">Hizmetlerimiz</p>
-                        <h2 class="font-display text-3xl md:text-5xl font-semibold leading-none reveal">Taşımacılık ve mobilya kurulumda uzman çözüm.</h2>
-                    </div>
-                </div>
+                <p class="text-[11px] uppercase tracking-[0.3em] text-blue-600 font-bold mb-4 reveal">Hizmetlerimiz</p>
+                <h2 class="font-display text-3xl md:text-5xl font-semibold leading-none mb-16 md:mb-24 reveal">Taşımacılık ve mobilya kurulumda uzman çözüm.</h2>
 
-                <div class="border-t border-zinc-200">
-                    <a href="/silivri-evden-eve-nakliyat" class="num-row group grid grid-cols-12 items-center gap-4 py-10 border-b border-zinc-200 hover:bg-zinc-50 transition-colors reveal">
-                        <span class="col-span-2 md:col-span-1 font-display text-2xl text-zinc-500 group-hover:text-blue-600 transition-colors">01</span>
-                        <div class="col-span-10 md:col-span-7">
-                            <h3 class="font-display text-2xl md:text-3xl font-semibold mb-2 group-hover:text-blue-600 transition-colors">Evden Eve Nakliyat</h3>
-                            <p class="text-zinc-500 hidden md:block max-w-lg">Profesyonel paketleme, demontaj/montaj ve sigortalı taşıma ile eşyalarınız yeni adresinize güvenle ulaşır.</p>
+                <div class="space-y-20 md:space-y-28">
+                    <a href="/silivri-evden-eve-nakliyat" class="group grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center reveal">
+                        <div class="lg:col-span-2 flex lg:flex-col gap-3 lg:gap-2">
+                            <span class="font-display text-lg font-bold tracking-widest text-zinc-400 group-hover:text-blue-600 transition-colors">01</span>
+                            <span class="text-[11px] uppercase tracking-[0.2em] text-zinc-400">Hizmet</span>
                         </div>
-                        <div class="hidden md:flex col-span-4 justify-end items-center gap-2 text-sm font-semibold uppercase tracking-widest">İncele<i class="ti ti-arrow-right num-arrow"></i></div>
+                        <div class="lg:col-span-5">
+                            <h3 class="font-display text-2xl md:text-3xl font-semibold mb-4 group-hover:text-blue-600 transition-colors">Evden Eve Nakliyat</h3>
+                            <p class="text-zinc-600 leading-relaxed mb-5 max-w-md">Profesyonel paketleme, demontaj/montaj ve sigortalı taşıma ile eşyalarınız yeni adresinize güvenle ulaşır.</p>
+                            <span class="inline-flex items-center gap-2 text-sm font-semibold text-blue-600">İncele<i class="ti ti-arrow-right transition-transform group-hover:translate-x-1"></i></span>
+                        </div>
+                        <div class="lg:col-span-5">
+                            <div class="rounded-[26px] overflow-hidden shadow-[0_3px_10px_rgba(0,0,0,0.15)] h-56 md:h-64">
+                                <img src="/assets/hero-nakliyat-1.jpg" alt="Evden Eve Nakliyat" width="1024" height="576" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                            </div>
+                        </div>
                     </a>
-                    <a href="/silivri-sehir-ici-mobilya-kurulum" class="num-row group grid grid-cols-12 items-center gap-4 py-10 border-b border-zinc-200 hover:bg-zinc-50 transition-colors reveal reveal-d1">
-                        <span class="col-span-2 md:col-span-1 font-display text-2xl text-zinc-500 group-hover:text-blue-600 transition-colors">02</span>
-                        <div class="col-span-10 md:col-span-7">
-                            <h3 class="font-display text-2xl md:text-3xl font-semibold mb-2 group-hover:text-blue-600 transition-colors">Şehir İçi Mobilya Kurulum</h3>
-                            <p class="text-zinc-500 hidden md:block max-w-lg">Silivri ve İstanbul içinde yeni aldığınız mobilyaların profesyonel montajı ve kurulumu.</p>
+                    <a href="/silivri-sehir-ici-mobilya-kurulum" class="group grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center reveal reveal-d1">
+                        <div class="lg:col-span-2 flex lg:flex-col gap-3 lg:gap-2">
+                            <span class="font-display text-lg font-bold tracking-widest text-zinc-400 group-hover:text-blue-600 transition-colors">02</span>
+                            <span class="text-[11px] uppercase tracking-[0.2em] text-zinc-400">Hizmet</span>
                         </div>
-                        <div class="hidden md:flex col-span-4 justify-end items-center gap-2 text-sm font-semibold uppercase tracking-widest">İncele<i class="ti ti-arrow-right num-arrow"></i></div>
+                        <div class="lg:col-span-5">
+                            <h3 class="font-display text-2xl md:text-3xl font-semibold mb-4 group-hover:text-blue-600 transition-colors">Şehir İçi Mobilya Kurulum</h3>
+                            <p class="text-zinc-600 leading-relaxed mb-5 max-w-md">Silivri ve İstanbul içinde yeni aldığınız mobilyaların profesyonel montajı ve kurulumu.</p>
+                            <span class="inline-flex items-center gap-2 text-sm font-semibold text-blue-600">İncele<i class="ti ti-arrow-right transition-transform group-hover:translate-x-1"></i></span>
+                        </div>
+                        <div class="lg:col-span-5">
+                            <div class="rounded-[26px] overflow-hidden shadow-[0_3px_10px_rgba(0,0,0,0.15)] h-56 md:h-64">
+                                <img src="/assets/mobilya-kurulum-1.jpg" alt="Şehir İçi Mobilya Kurulum" width="1024" height="576" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                            </div>
+                        </div>
                     </a>
-                    <a href="/silivri-sehirler-arasi-mobilya-kurulum" class="num-row group grid grid-cols-12 items-center gap-4 py-10 border-b border-zinc-200 hover:bg-zinc-50 transition-colors reveal reveal-d2">
-                        <span class="col-span-2 md:col-span-1 font-display text-2xl text-zinc-500 group-hover:text-blue-600 transition-colors">03</span>
-                        <div class="col-span-10 md:col-span-7">
-                            <h3 class="font-display text-2xl md:text-3xl font-semibold mb-2 group-hover:text-blue-600 transition-colors">Şehirler Arası Mobilya Kurulum</h3>
-                            <p class="text-zinc-500 hidden md:block max-w-lg">Türkiye'nin her noktasına mobilya kurulum ekibimizle ulaşıyor, profesyonel montaj sağlıyoruz.</p>
+                    <a href="/silivri-sehirler-arasi-mobilya-kurulum" class="group grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center reveal reveal-d2">
+                        <div class="lg:col-span-2 flex lg:flex-col gap-3 lg:gap-2">
+                            <span class="font-display text-lg font-bold tracking-widest text-zinc-400 group-hover:text-blue-600 transition-colors">03</span>
+                            <span class="text-[11px] uppercase tracking-[0.2em] text-zinc-400">Hizmet</span>
                         </div>
-                        <div class="hidden md:flex col-span-4 justify-end items-center gap-2 text-sm font-semibold uppercase tracking-widest">İncele<i class="ti ti-arrow-right num-arrow"></i></div>
+                        <div class="lg:col-span-5">
+                            <h3 class="font-display text-2xl md:text-3xl font-semibold mb-4 group-hover:text-blue-600 transition-colors">Şehirler Arası Mobilya Kurulum</h3>
+                            <p class="text-zinc-600 leading-relaxed mb-5 max-w-md">Türkiye'nin her noktasına mobilya kurulum ekibimizle ulaşıyor, profesyonel montaj sağlıyoruz.</p>
+                            <span class="inline-flex items-center gap-2 text-sm font-semibold text-blue-600">İncele<i class="ti ti-arrow-right transition-transform group-hover:translate-x-1"></i></span>
+                        </div>
+                        <div class="lg:col-span-5">
+                            <div class="rounded-[26px] overflow-hidden shadow-[0_3px_10px_rgba(0,0,0,0.15)] h-56 md:h-64">
+                                <img src="/assets/sehirler-arasi-1.jpg" alt="Şehirler Arası Mobilya Kurulum" width="1024" height="576" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                            </div>
+                        </div>
                     </a>
                 </div>
             </div>
