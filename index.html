@@ -31,7 +31,7 @@
 
     <style>
         html { scroll-behavior: smooth; overflow-x: hidden; }
-        body { overflow-x: hidden; max-width: 100%; }
+        body { max-width: 100%; }
         img { max-width: 100%; } .font-display { letter-spacing: -0.02em; }
 
         @media (prefers-reduced-motion: no-preference) {
@@ -56,18 +56,25 @@
         @keyframes arrowBounce { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(6px); } }
         .arrow-bounce { display: inline-block; animation: arrowBounce 1.3s ease-in-out infinite; }
 
+        @keyframes marqueeScroll { from { transform: translateX(0); } to { transform: translateX(-100%); } }
+        .marquee-track { animation: marqueeScroll 28s linear infinite; width: max-content; }
+        @media (prefers-reduced-motion: reduce) {
+            .marquee-track { animation: none; }
+            .marquee-content:nth-child(2) { display: none; }
+        }
+
         @keyframes phoneShake { 0%, 100% { transform: rotate(0deg); } 20% { transform: rotate(-16deg); } 40% { transform: rotate(13deg); } 60% { transform: rotate(-9deg); } 80% { transform: rotate(6deg); } }
         .group:hover .phone-shake-hover { animation: phoneShake 0.5s ease-in-out; display: inline-block; }
 
         @keyframes countUpReveal { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         .counter { display: inline-block; }
 
-        #truckIntro { position: fixed; inset: 0; z-index: 200; background: #f4f6f9; overflow: hidden; animation: introHide 0.5s ease 1.5s forwards; }
-        #truckIntro .truck-icon { position: absolute; top: 50%; left: -20%; transform: translateY(-50%); animation: truckDrive 1.4s cubic-bezier(0.7,0,0.3,1) forwards; }
-        @keyframes truckDrive { 0% { left: -20%; } 100% { left: 110%; } }
-        @keyframes introHide { to { opacity: 0; visibility: hidden; pointer-events: none; } }
+        .hero-cover { background: #101a2c; clip-path: inset(0 0 0 0); animation: heroWipe 1.5s cubic-bezier(0.7,0,0.3,1) 0.15s forwards; }
+        .hero-truck-icon { top: 50%; left: -15%; transform: translateY(-50%); font-size: 4.5rem; color: #ffffff; animation: heroTruckDrive 1.5s cubic-bezier(0.7,0,0.3,1) 0.15s forwards; }
+        @keyframes heroWipe { to { clip-path: inset(0 0 0 100%); } }
+        @keyframes heroTruckDrive { to { left: 110%; } }
         @media (prefers-reduced-motion: reduce) {
-            #truckIntro { display: none; }
+            .hero-cover, .hero-truck-icon { display: none; }
             .arrow-bounce { animation: none; }
         }
     </style>
@@ -113,11 +120,6 @@
 </head>
 <body class="bg-white text-ink font-sans antialiased">
 
-    <!-- ============ INTRO ANIMATION ============ -->
-    <div id="truckIntro" aria-hidden="true">
-        <i class="ti ti-truck-delivery truck-icon" style="font-size: 5rem; color: #1e3a5f;"></i>
-    </div>
-
     <!-- ============ HEADER ============ -->
     <header id="siteHeader" class="fixed top-0 left-0 right-0 z-50 transition-colors duration-300">
         <div class="max-w-[1400px] mx-auto px-6 lg:px-10 h-20 flex items-center justify-between">
@@ -136,7 +138,15 @@
                         </div>
                     </div>
                 </div>
-                <a href="/hakkimizda" class="nav-link text-[13px] font-semibold uppercase tracking-widest hover:opacity-60 transition-opacity">Hakkımızda</a>
+                <div class="relative group">
+                    <button class="nav-link text-[13px] font-semibold uppercase tracking-widest hover:opacity-60 transition-opacity flex items-center gap-1.5">Kurumsal<i class="ti ti-chevron-down text-[10px] transition-transform group-hover:rotate-180"></i></button>
+                    <div class="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                        <div class="bg-white rounded-lg shadow-xl border border-zinc-100 py-2 w-56">
+                            <a href="/hakkimizda" class="block px-5 py-3 text-sm text-zinc-600 hover:text-ink hover:bg-zinc-50 transition-colors">Hakkımızda</a>
+                            <a href="/sss" class="block px-5 py-3 text-sm text-zinc-600 hover:text-ink hover:bg-zinc-50 transition-colors">Sıkça Sorulan Sorular</a>
+                        </div>
+                    </div>
+                </div>
                 <a href="/blog" class="nav-link text-[13px] font-semibold uppercase tracking-widest hover:opacity-60 transition-opacity">Blog</a>
                 <a href="/iletisim" class="nav-link text-[13px] font-semibold uppercase tracking-widest hover:opacity-60 transition-opacity">İletişim</a>
             </div>
@@ -160,6 +170,7 @@
             <a href="/silivri-sehir-ici-mobilya-kurulum" class="m-link text-white font-display text-3xl py-3 border-b border-white/10">Şehir İçi Kurulum</a>
             <a href="/silivri-sehirler-arasi-mobilya-kurulum" class="m-link text-white font-display text-3xl py-3 border-b border-white/10">Şehirler Arası Kurulum</a>
             <a href="/hakkimizda" class="m-link text-white font-display text-3xl py-3 border-b border-white/10">Hakkımızda</a>
+            <a href="/sss" class="m-link text-white font-display text-3xl py-3 border-b border-white/10">Sıkça Sorulan Sorular</a>
         </nav>
         <div class="px-6 pt-8 flex flex-col gap-4">
             <a href="tel:+905392946066" class="m-link inline-flex items-center gap-2 text-blue-300 font-bold text-lg"><i class="ti ti-phone"></i>0539 294 60 66</a>
@@ -169,40 +180,56 @@
     </div>
 
     <main>
-        <!-- ============ SPLIT-SCREEN HERO ============ -->
-        <section class="relative grid grid-cols-1 lg:grid-cols-2 min-h-[100dvh] lg:min-h-screen">
-            <div class="flex items-center px-6 lg:px-16 pt-28 pb-16 lg:pt-20 lg:pb-0 order-2 lg:order-1">
-                <div class="max-w-xl">
-                    <p class="text-[11px] uppercase tracking-[0.3em] text-blue-600 font-bold mb-6">Silivri Dizayn Taşımacılık</p>
-                    <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-semibold leading-[1.05] mb-6">Evden eve nakliyatta güvenin adı.</h1>
-                    <p class="text-lg text-zinc-500 leading-relaxed mb-10 max-w-md">Evden eve taşımacılık, şehir içi ve şehirler arası mobilya kurulum — hepsi sigortalı ve garantili hizmet anlayışıyla.</p>
-                    <div class="flex flex-wrap items-center gap-6">
-                        <a href="tel:+905392946066" class="group inline-flex items-center gap-3 px-8 py-4 bg-blue-600 text-white font-bold rounded-[20px] hover:bg-blue-700 active:scale-[0.98] transition-all"><i class="ti ti-phone text-lg phone-shake-hover"></i>Hemen Ara</a>
-                        <a href="#teklif" class="inline-flex items-center gap-2 text-ink font-semibold border-b-2 border-ink pb-1 hover:border-blue-600 hover:text-blue-600 transition-colors">Ücretsiz Teklif Al<i class="ti ti-arrow-right arrow-bounce"></i></a>
+        <!-- ============ FULL-BLEED EDITORIAL HERO ============ -->
+        <section class="relative h-[100dvh] overflow-hidden">
+            <!-- truck-drags-in reveal -->
+            <div class="hero-cover absolute inset-0 z-40 pointer-events-none" aria-hidden="true"></div>
+            <i class="ti ti-truck-delivery hero-truck-icon absolute z-40 pointer-events-none" aria-hidden="true"></i>
+
+            <div class="absolute inset-0">
+                <button class="hero-slide absolute inset-0 w-full h-full opacity-100 transition-opacity duration-1000 cursor-pointer" data-slide="0" aria-label="Sonraki görsel">
+                    <img src="/assets/hero-nakliyat-1.webp" alt="Silivri evden eve nakliyat" width="1024" height="576" fetchpriority="high" class="w-full h-full object-cover">
+                </button>
+                <button class="hero-slide absolute inset-0 w-full h-full opacity-0 transition-opacity duration-1000 cursor-pointer" data-slide="1" aria-label="Sonraki görsel">
+                    <img src="/assets/mobilya-kurulum-1.webp" alt="Silivri mobilya kurulum" width="1024" height="576" loading="lazy" class="w-full h-full object-cover">
+                </button>
+                <button class="hero-slide absolute inset-0 w-full h-full opacity-0 transition-opacity duration-1000 cursor-pointer" data-slide="2" aria-label="Sonraki görsel">
+                    <img src="/assets/sehirler-arasi-1.webp" alt="Şehirler arası mobilya kurulum ve taşımacılık" width="1024" height="576" loading="lazy" class="w-full h-full object-cover">
+                </button>
+                <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/50 to-ink/10"></div>
+            </div>
+
+            <!-- location marquee -->
+            <div class="absolute top-24 left-0 right-0 z-10 overflow-hidden py-3 border-y border-white/10 bg-ink/30 backdrop-blur-sm">
+                <div class="marquee-track flex">
+                    <span class="marquee-content flex-shrink-0 text-xs font-bold uppercase tracking-[0.3em] text-white/70">Silivri&nbsp;&nbsp;•&nbsp;&nbsp;Çatalca&nbsp;&nbsp;•&nbsp;&nbsp;Büyükçekmece&nbsp;&nbsp;•&nbsp;&nbsp;Selimpaşa&nbsp;&nbsp;•&nbsp;&nbsp;Kavaklı&nbsp;&nbsp;•&nbsp;&nbsp;İstanbul&nbsp;&nbsp;•&nbsp;&nbsp;Türkiye Geneli&nbsp;&nbsp;•&nbsp;&nbsp;</span>
+                    <span class="marquee-content flex-shrink-0 text-xs font-bold uppercase tracking-[0.3em] text-white/70" aria-hidden="true">Silivri&nbsp;&nbsp;•&nbsp;&nbsp;Çatalca&nbsp;&nbsp;•&nbsp;&nbsp;Büyükçekmece&nbsp;&nbsp;•&nbsp;&nbsp;Selimpaşa&nbsp;&nbsp;•&nbsp;&nbsp;Kavaklı&nbsp;&nbsp;•&nbsp;&nbsp;İstanbul&nbsp;&nbsp;•&nbsp;&nbsp;Türkiye Geneli&nbsp;&nbsp;•&nbsp;&nbsp;</span>
+                </div>
+            </div>
+
+            <div class="relative z-10 h-full flex flex-col justify-end px-6 lg:px-16 pb-16 lg:pb-14">
+                <div class="max-w-4xl">
+                    <p class="text-[11px] uppercase tracking-[0.3em] text-blue-300 font-bold mb-6 reveal">Silivri Dizayn Taşımacılık</p>
+                    <h1 class="font-display text-5xl sm:text-6xl lg:text-[5.5rem] font-semibold leading-[0.95] mb-8 text-white reveal">Silivri'de<br>evden eve nakliyatta<br>güvenin adı.</h1>
+                    <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-8 reveal reveal-d1">
+                        <p class="text-lg text-white/80 leading-relaxed max-w-sm">Evden eve taşımacılık, şehir içi ve şehirler arası mobilya kurulum — hepsi sigortalı ve garantili hizmet anlayışıyla.</p>
+                        <div class="flex flex-wrap items-center gap-6 flex-shrink-0">
+                            <a href="tel:+905392946066" class="group inline-flex items-center gap-3 px-8 py-4 bg-blue-600 text-white font-bold rounded-[20px] hover:bg-blue-700 active:scale-[0.98] transition-all"><i class="ti ti-phone text-lg phone-shake-hover"></i>Hemen Ara</a>
+                            <a href="#teklif" class="inline-flex items-center gap-2 text-white font-semibold border-b-2 border-white/50 pb-1 hover:border-blue-400 hover:text-blue-300 transition-colors">Ücretsiz Teklif Al<i class="ti ti-arrow-right arrow-bounce"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="relative min-h-[45vh] lg:min-h-full order-1 lg:order-2">
-                <div class="absolute inset-0 overflow-hidden">
-                    <button class="hero-slide absolute inset-0 w-full opacity-100 transition-opacity duration-700 cursor-pointer" data-slide="0" aria-label="Sonraki görsel">
-                        <img src="/assets/hero-nakliyat-1.webp" alt="Silivri evden eve nakliyat" width="1024" height="576" fetchpriority="high" class="w-full h-full object-cover">
-                    </button>
-                    <button class="hero-slide absolute inset-0 w-full opacity-0 transition-opacity duration-700 cursor-pointer" data-slide="1" aria-label="Sonraki görsel">
-                        <img src="/assets/mobilya-kurulum-1.webp" alt="Silivri mobilya kurulum" width="1024" height="576" loading="lazy" class="w-full h-full object-cover">
-                    </button>
-                    <button class="hero-slide absolute inset-0 w-full opacity-0 transition-opacity duration-700 cursor-pointer" data-slide="2" aria-label="Sonraki görsel">
-                        <img src="/assets/sehirler-arasi-1.webp" alt="Şehirler arası mobilya kurulum ve taşımacılık" width="1024" height="576" loading="lazy" class="w-full h-full object-cover">
-                    </button>
-                </div>
-                <div class="absolute left-6 lg:left-6 bottom-8 lg:bottom-14 bg-white rounded-[26px] shadow-[0_20px_90px_rgba(30,58,95,0.3)] px-7 py-6 max-w-[220px] z-20 pointer-events-none">
-                    <p class="font-display text-3xl font-semibold text-ink mb-1">7/24</p>
-                    <p class="text-xs uppercase tracking-widest text-zinc-500">Kesintisiz Hizmet</p>
-                </div>
-                <div class="absolute bottom-6 right-6 flex gap-2 z-20" id="heroDots">
-                    <button class="hero-dot p-2.5 -m-2.5 flex items-center justify-center" data-goto="0" aria-label="1. görsele git"><span class="w-2.5 h-2.5 rounded-full bg-white transition-all block"></span></button>
-                    <button class="hero-dot p-2.5 -m-2.5 flex items-center justify-center" data-goto="1" aria-label="2. görsele git"><span class="w-2.5 h-2.5 rounded-full bg-white/40 transition-all block"></span></button>
-                    <button class="hero-dot p-2.5 -m-2.5 flex items-center justify-center" data-goto="2" aria-label="3. görsele git"><span class="w-2.5 h-2.5 rounded-full bg-white/40 transition-all block"></span></button>
-                </div>
+
+            <a href="#hizmetler" class="hidden lg:flex absolute bottom-14 left-16 z-20 items-center gap-3 text-white/60 hover:text-white transition-colors text-xs uppercase tracking-widest">
+                <span class="w-9 h-9 rounded-full border border-white/25 flex items-center justify-center animate-bounce"><i class="ti ti-chevron-down"></i></span>
+                Keşfet
+            </a>
+
+            <div class="absolute bottom-6 right-6 lg:right-16 flex gap-2 z-20" id="heroDots">
+                <button class="hero-dot p-2.5 -m-2.5 flex items-center justify-center" data-goto="0" aria-label="1. görsele git"><span class="w-2.5 h-2.5 rounded-full bg-white transition-all block"></span></button>
+                <button class="hero-dot p-2.5 -m-2.5 flex items-center justify-center" data-goto="1" aria-label="2. görsele git"><span class="w-2.5 h-2.5 rounded-full bg-white/40 transition-all block"></span></button>
+                <button class="hero-dot p-2.5 -m-2.5 flex items-center justify-center" data-goto="2" aria-label="3. görsele git"><span class="w-2.5 h-2.5 rounded-full bg-white/40 transition-all block"></span></button>
             </div>
         </section>
 
@@ -401,15 +428,21 @@
                 <h2 class="font-display text-3xl md:text-4xl font-semibold leading-tight mb-14 reveal">Silivri'nin Önde Gelen Mobilya Markalarının Güvenilir Çözüm Ortağıyız</h2>
                 <div class="grid grid-cols-1 sm:grid-cols-3 border-t border-zinc-200">
                     <div class="flex flex-col items-center justify-center gap-4 py-12 border-b sm:border-b-0 sm:border-r border-zinc-200 reveal">
-                        <img src="/assets/istikbal.webp" alt="İstikbal Silivri Şubesi" loading="lazy" class="h-14 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300">
+                        <div class="h-16 w-40 flex items-center justify-center">
+                            <img src="/assets/istikbal.webp" alt="İstikbal Silivri Şubesi" loading="lazy" class="max-h-full max-w-full object-contain grayscale hover:grayscale-0 transition-all duration-300">
+                        </div>
                         <p class="text-xs uppercase tracking-widest text-zinc-500">İstikbal — Silivri & Büyükçekmece Şubesi</p>
                     </div>
                     <div class="flex flex-col items-center justify-center gap-4 py-12 border-b sm:border-b-0 sm:border-r border-zinc-200 reveal reveal-d1">
-                        <img src="/assets/bellona.webp" alt="Bellona Silivri Şubesi" width="891" height="240" loading="lazy" class="h-14 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300">
+                        <div class="h-16 w-40 flex items-center justify-center">
+                            <img src="/assets/bellona.webp" alt="Bellona Silivri Şubesi" width="891" height="240" loading="lazy" class="max-h-full max-w-full object-contain grayscale hover:grayscale-0 transition-all duration-300">
+                        </div>
                         <p class="text-xs uppercase tracking-widest text-zinc-500">Bellona — Silivri Şubesi</p>
                     </div>
                     <div class="flex flex-col items-center justify-center gap-4 py-12 border-zinc-200 reveal reveal-d2">
-                        <img src="/assets/özgürmobilya%20logo.webp" alt="Özgür Mobilya Silivri Şubesi" loading="lazy" class="h-14 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300">
+                        <div class="h-16 w-40 flex items-center justify-center">
+                            <img src="/assets/özgürmobilya%20logo.webp" alt="Özgür Mobilya Silivri Şubesi" loading="lazy" class="max-h-full max-w-full object-contain grayscale hover:grayscale-0 transition-all duration-300">
+                        </div>
                         <p class="text-xs uppercase tracking-widest text-zinc-500">Özgür Mobilya — Silivri Şubesi</p>
                     </div>
                 </div>

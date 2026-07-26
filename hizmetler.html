@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
     <link rel="stylesheet" href="/assets/styles.css">
     <style>
-        html { scroll-behavior: smooth; overflow-x: hidden; } body { overflow-x: hidden; max-width: 100%; } img { max-width: 100%; } .font-display { letter-spacing: -0.02em; }
+        html { scroll-behavior: smooth; overflow-x: hidden; } body { max-width: 100%; } img { max-width: 100%; } .font-display { letter-spacing: -0.02em; }
         @media (prefers-reduced-motion: no-preference) { .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1); } .reveal.revealed { opacity: 1; transform: translateY(0); } .reveal-d1 { transition-delay: 100ms; } .reveal-d2 { transition-delay: 200ms; } }
         @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .reveal { opacity: 1 !important; transform: none !important; } }
         #siteHeader { background: rgba(255,255,255,0.9); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(24,24,27,0.06); }
@@ -56,7 +56,15 @@
                         </div>
                     </div>
                 </div>
-                <a href="/hakkimizda" class="text-[13px] font-semibold uppercase tracking-widest hover:opacity-60 transition-opacity">Hakkımızda</a>
+                <div class="relative group">
+                    <button class="text-[13px] font-semibold uppercase tracking-widest hover:opacity-60 transition-opacity flex items-center gap-1.5">Kurumsal<i class="ti ti-chevron-down text-[10px] transition-transform group-hover:rotate-180"></i></button>
+                    <div class="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                        <div class="bg-white rounded-lg shadow-xl border border-zinc-100 py-2 w-56">
+                            <a href="/hakkimizda" class="block px-5 py-3 text-sm text-zinc-600 hover:text-ink hover:bg-zinc-50 transition-colors">Hakkımızda</a>
+                            <a href="/sss" class="block px-5 py-3 text-sm text-zinc-600 hover:text-ink hover:bg-zinc-50 transition-colors">Sıkça Sorulan Sorular</a>
+                        </div>
+                    </div>
+                </div>
                 <a href="/blog" class="text-[13px] font-semibold uppercase tracking-widest hover:opacity-60 transition-opacity">Blog</a>
                 <a href="/iletisim" class="text-[13px] font-semibold uppercase tracking-widest hover:opacity-60 transition-opacity">İletişim</a>
             </div>
@@ -76,6 +84,7 @@
             <a href="/silivri-sehir-ici-mobilya-kurulum" class="m-link text-white font-display text-3xl py-3 border-b border-white/10">Şehir İçi Kurulum</a>
             <a href="/silivri-sehirler-arasi-mobilya-kurulum" class="m-link text-white font-display text-3xl py-3 border-b border-white/10">Şehirler Arası Kurulum</a>
             <a href="/hakkimizda" class="m-link text-white font-display text-3xl py-3 border-b border-white/10">Hakkımızda</a>
+            <a href="/sss" class="m-link text-white font-display text-3xl py-3 border-b border-white/10">Sıkça Sorulan Sorular</a>
         </nav>
         <div class="px-6 pt-8 flex flex-col gap-4">
             <a href="tel:+905392946066" class="m-link inline-flex items-center gap-2 text-blue-300 font-bold text-lg"><i class="ti ti-phone"></i>0539 294 60 66</a>
