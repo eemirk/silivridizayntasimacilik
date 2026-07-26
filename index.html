@@ -46,7 +46,7 @@
     <style>
         html { scroll-behavior: smooth; overflow-x: hidden; }
         body { overflow-x: hidden; max-width: 100%; }
-        img { max-width: 100%; }
+        img { max-width: 100%; } .font-display { letter-spacing: -0.02em; }
 
         @media (prefers-reduced-motion: no-preference) {
             .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1); }
@@ -159,7 +159,7 @@
             </div>
             <div class="hidden lg:flex items-center gap-5">
                 <a href="tel:+905392946066" class="nav-link text-sm font-bold flex items-center gap-2"><i class="ti ti-phone text-base nav-icon"></i>0539 294 60 66</a>
-                <a href="#teklif" class="text-xs font-bold uppercase tracking-widest text-white bg-blue-600 hover:bg-blue-700 px-5 py-3 rounded-lg transition-colors">Teklif Al</a>
+                <a href="#teklif" class="text-xs font-bold uppercase tracking-widest text-white bg-blue-600 hover:bg-blue-700 px-5 py-3 rounded-[20px] transition-colors">Teklif Al</a>
             </div>
             <button id="menuBtn" class="lg:hidden nav-link p-2" aria-label="Menüyü aç"><i class="ti ti-menu-2 text-2xl"></i></button>
         </div>
@@ -194,7 +194,7 @@
                     <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-semibold leading-[1.05] mb-6">Evden eve nakliyatta güvenin adı.</h1>
                     <p class="text-lg text-zinc-500 leading-relaxed mb-10 max-w-md">Evden eve taşımacılık, şehir içi ve şehirler arası mobilya kurulum — hepsi sigortalı ve garantili hizmet anlayışıyla.</p>
                     <div class="flex flex-wrap items-center gap-6">
-                        <a href="tel:+905392946066" class="group inline-flex items-center gap-3 px-8 py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 active:scale-[0.98] transition-all"><i class="ti ti-phone text-lg phone-shake-hover"></i>Hemen Ara</a>
+                        <a href="tel:+905392946066" class="group inline-flex items-center gap-3 px-8 py-4 bg-blue-600 text-white font-bold rounded-[20px] hover:bg-blue-700 active:scale-[0.98] transition-all"><i class="ti ti-phone text-lg phone-shake-hover"></i>Hemen Ara</a>
                         <a href="#teklif" class="inline-flex items-center gap-2 text-ink font-semibold border-b-2 border-ink pb-1 hover:border-blue-600 hover:text-blue-600 transition-colors">Ücretsiz Teklif Al<i class="ti ti-arrow-right arrow-bounce"></i></a>
                     </div>
                 </div>
@@ -211,7 +211,7 @@
                         <img src="/assets/sehirler-arasi-1.jpg" alt="Şehirler arası mobilya kurulum ve taşımacılık" width="1024" height="576" loading="lazy" class="w-full h-full object-cover">
                     </button>
                 </div>
-                <div class="absolute left-6 lg:left-6 bottom-8 lg:bottom-14 bg-white rounded-lg shadow-2xl px-7 py-6 max-w-[220px] z-20 pointer-events-none">
+                <div class="absolute left-6 lg:left-6 bottom-8 lg:bottom-14 bg-white rounded-[26px] shadow-[0_20px_90px_rgba(30,58,95,0.3)] px-7 py-6 max-w-[220px] z-20 pointer-events-none">
                     <p class="font-display text-3xl font-semibold text-ink mb-1">7/24</p>
                     <p class="text-xs uppercase tracking-widest text-zinc-500">Kesintisiz Hizmet</p>
                 </div>
@@ -224,7 +224,7 @@
         </section>
 
         <!-- ============ SERVICES — NUMBERED LIST ============ -->
-        <section id="hizmetler" class="py-28 px-6 lg:px-16 bg-white">
+        <section id="hizmetler" class="py-20 px-6 lg:px-16 bg-white">
             <div class="max-w-[1400px] mx-auto">
                 <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-16">
                     <div>
@@ -263,7 +263,7 @@
         </section>
 
         <!-- ============ WHY US — split list ============ -->
-        <section class="py-28 px-6 lg:px-16 bg-zinc-50">
+        <section class="py-20 px-6 lg:px-16 bg-zinc-50">
             <div class="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
                 <div class="lg:col-span-4">
                     <p class="text-[11px] uppercase tracking-[0.3em] text-blue-600 font-bold mb-4 reveal">Neden Biz?</p>
@@ -321,7 +321,7 @@
         </section>
 
         <!-- ============ BRANDS ============ -->
-        <section class="py-24 px-6 lg:px-16 bg-zinc-50">
+        <section class="py-20 px-6 lg:px-16 bg-zinc-50">
             <div class="max-w-[1400px] mx-auto">
                 <p class="text-[11px] uppercase tracking-[0.3em] text-blue-600 font-bold mb-4 reveal">Çalıştığımız Markalar</p>
                 <h2 class="font-display text-3xl md:text-4xl font-semibold leading-tight mb-14 reveal">Silivri'nin Önde Gelen Mobilya Markalarının Güvenilir Çözüm Ortağıyız</h2>
@@ -343,7 +343,7 @@
         </section>
 
         <!-- ============ TESTIMONIALS — pull quote ============ -->
-        <section class="py-28 px-6 lg:px-16 bg-white">
+        <section class="py-20 px-6 lg:px-16 bg-white">
             <div class="max-w-[1400px] mx-auto">
                 <p class="text-[11px] uppercase tracking-[0.3em] text-blue-600 font-bold mb-8 reveal">Müşteri Yorumları</p>
                 <blockquote class="font-display text-2xl md:text-4xl font-medium leading-snug max-w-4xl mb-6 reveal">"Evden eve taşınmamız çok sorunsuz geçti, mobilyalarımızı da yeni evimizde eksiksiz kurdular."</blockquote>
@@ -363,7 +363,7 @@
         </section>
 
         <!-- ============ SEO CONTENT ============ -->
-        <section class="py-28 px-6 lg:px-16 bg-white">
+        <section class="py-20 px-6 lg:px-16 bg-white">
             <div class="max-w-3xl mx-auto">
                 <h2 class="font-display text-3xl md:text-4xl font-semibold leading-none mb-8 reveal">Silivri'de Nakliyat ve Mobilya Kurulum</h2>
                 <div class="space-y-5 text-zinc-600 leading-relaxed reveal">
@@ -380,8 +380,8 @@
                 <div class="reveal reveal-d1">
                     <p class="text-zinc-500 mb-8 max-w-md">Taşınma veya mobilya kurulum ihtiyacınız için hemen bizi arayın veya WhatsApp'tan yazın.</p>
                     <div class="flex flex-wrap gap-4">
-                        <a href="tel:+905392946066" class="inline-flex items-center gap-3 px-8 py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 active:scale-[0.98] transition-all"><i class="ti ti-phone text-lg"></i>0539 294 60 66</a>
-                        <a href="https://wa.me/905392946066?text=Merhaba%2C%20Silivri%20evden%20eve%20nakliyat%20teklifi%20almak%20istiyorum." target="_blank" rel="nofollow noopener noreferrer" class="inline-flex items-center gap-3 px-8 py-4 border border-white/30 text-white font-bold rounded-lg hover:bg-white/10 active:scale-[0.98] transition-all"><i class="ti ti-brand-whatsapp text-lg"></i>WhatsApp</a>
+                        <a href="tel:+905392946066" class="inline-flex items-center gap-3 px-8 py-4 bg-blue-600 text-white font-bold rounded-[20px] hover:bg-blue-700 active:scale-[0.98] transition-all"><i class="ti ti-phone text-lg"></i>0539 294 60 66</a>
+                        <a href="https://wa.me/905392946066?text=Merhaba%2C%20Silivri%20evden%20eve%20nakliyat%20teklifi%20almak%20istiyorum." target="_blank" rel="nofollow noopener noreferrer" class="inline-flex items-center gap-3 px-8 py-4 border border-white/30 text-white font-bold rounded-[20px] hover:bg-white/10 active:scale-[0.98] transition-all"><i class="ti ti-brand-whatsapp text-lg"></i>WhatsApp</a>
                     </div>
                 </div>
             </div>

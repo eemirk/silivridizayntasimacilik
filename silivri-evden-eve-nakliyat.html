@@ -35,7 +35,7 @@
     <style>
         html { scroll-behavior: smooth; overflow-x: hidden; }
         body { overflow-x: hidden; max-width: 100%; }
-        img { max-width: 100%; }
+        img { max-width: 100%; } .font-display { letter-spacing: -0.02em; }
         @media (prefers-reduced-motion: no-preference) {
             .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1); }
             .reveal.revealed { opacity: 1; transform: translateY(0); }
@@ -99,7 +99,7 @@
             </div>
             <div class="hidden lg:flex items-center gap-5">
                 <a href="tel:+905392946066" class="text-sm font-bold flex items-center gap-2"><i class="ti ti-phone text-base"></i>0539 294 60 66</a>
-                <a href="/#teklif" class="text-xs font-bold uppercase tracking-widest text-white bg-blue-600 hover:bg-blue-700 px-5 py-3 rounded-lg transition-colors">Teklif Al</a>
+                <a href="/#teklif" class="text-xs font-bold uppercase tracking-widest text-white bg-blue-600 hover:bg-blue-700 px-5 py-3 rounded-[20px] transition-colors">Teklif Al</a>
             </div>
             <button id="menuBtn" class="lg:hidden p-2" aria-label="Menüyü aç"><i class="ti ti-menu-2 text-2xl"></i></button>
         </div>
@@ -137,7 +137,7 @@
         </section>
 
         <!-- ============ SERVICE INTRO ============ -->
-        <section class="py-24 px-6 lg:px-16">
+        <section class="py-20 px-6 lg:px-16">
             <div class="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
                 <div class="lg:col-span-7 space-y-5 text-zinc-600 leading-relaxed reveal">
                     <p>Silivri evden eve nakliyat denildiğinde tercih edilen isim olan Silivri Dizayn, yılların tecrübesiyle eşyalarınızı en güvenli şekilde yeni adresinize taşıyor. Taşınma sürecinin stresli olabileceğinin farkındayız; bu yüzden her aşamada yanınızda olarak süreci sizin için kolaylaştırıyoruz.</p>
@@ -146,16 +146,16 @@
                 </div>
                 <div class="lg:col-span-5 reveal reveal-d1">
                     <div class="grid grid-cols-2 gap-4">
-                        <div class="bg-blue-600 rounded-lg p-8 text-white"><p class="font-display text-3xl font-semibold mb-1">7/24</p><p class="text-sm text-blue-100">Hizmet</p></div>
-                        <div class="bg-ink rounded-lg p-8 text-white"><p class="font-display text-3xl font-semibold mb-1">%100</p><p class="text-sm text-zinc-500">Sigortalı</p></div>
+                        <div class="bg-blue-600 rounded-[20px] p-8 text-white"><p class="font-display text-3xl font-semibold mb-1">7/24</p><p class="text-sm text-blue-100">Hizmet</p></div>
+                        <div class="bg-ink rounded-[20px] p-8 text-white"><p class="font-display text-3xl font-semibold mb-1">%100</p><p class="text-sm text-zinc-500">Sigortalı</p></div>
                     </div>
-                    <div class="rounded-lg overflow-hidden h-[260px] mt-4"><img src="/assets/hero-nakliyat-1.jpg" alt="Silivri evden eve nakliyat" width="1024" height="576" loading="lazy" class="w-full h-full object-cover"></div>
+                    <div class="rounded-[26px] overflow-hidden shadow-[0_3px_10px_rgba(0,0,0,0.15)] h-[260px] mt-4"><img src="/assets/hero-nakliyat-1.jpg" alt="Silivri evden eve nakliyat" width="1024" height="576" loading="lazy" class="w-full h-full object-cover"></div>
                 </div>
             </div>
         </section>
 
         <!-- ============ WHY US ============ -->
-        <section class="py-24 px-6 lg:px-16 bg-zinc-50">
+        <section class="py-20 px-6 lg:px-16 bg-zinc-50">
             <div class="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
                 <div class="lg:col-span-4">
                     <p class="text-[11px] uppercase tracking-[0.3em] text-blue-600 font-bold mb-4 reveal">Neden Biz?</p>
@@ -173,7 +173,7 @@
         </section>
 
         <!-- ============ PROCESS ============ -->
-        <section class="py-24 px-6 lg:px-16">
+        <section class="py-20 px-6 lg:px-16">
             <div class="max-w-[1400px] mx-auto">
                 <p class="text-[11px] uppercase tracking-[0.3em] text-blue-600 font-bold mb-4 reveal">Süreç</p>
                 <h2 class="font-display text-3xl md:text-4xl font-semibold leading-tight mb-14 reveal">Evden Eve Nakliyat Nasıl Çalışır?</h2>
@@ -187,7 +187,7 @@
         </section>
 
         <!-- ============ WHAT'S INCLUDED ============ -->
-        <section class="py-24 px-6 lg:px-16 bg-zinc-50">
+        <section class="py-20 px-6 lg:px-16 bg-zinc-50">
             <div class="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
                 <div class="lg:col-span-7">
                     <p class="text-[11px] uppercase tracking-[0.3em] text-blue-600 font-bold mb-4 reveal">Hizmet Kapsamı</p>
@@ -201,21 +201,21 @@
                         <li class="flex items-start gap-3 text-zinc-600"><i class="ti ti-check text-blue-600 mt-1"></i><span>Beyaz eşya ve elektronik cihaz taşıma</span></li>
                     </ul>
                 </div>
-                <div class="lg:col-span-5 bg-ink rounded-lg p-10 reveal reveal-d1">
+                <div class="lg:col-span-5 bg-ink rounded-[26px] p-10 reveal reveal-d1">
                     <div class="mb-8">
                         <p class="font-display text-2xl font-semibold text-white mb-2">Hızlı Teklif Alın</p>
                         <p class="text-zinc-500 text-sm">Silivri evden eve nakliyat için hemen arayın</p>
                     </div>
                     <div class="space-y-3">
-                        <a href="tel:+905392946066" class="flex items-center justify-center gap-3 w-full px-8 py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-all"><i class="ti ti-phone text-lg"></i>0539 294 60 66</a>
-                        <a href="https://wa.me/905392946066?text=Merhaba%2C%20Silivri%20evden%20eve%20nakliyat%20teklifi%20almak%20istiyorum." target="_blank" rel="nofollow noopener noreferrer" class="flex items-center justify-center gap-3 w-full px-8 py-4 border border-white/20 text-white font-medium rounded-lg hover:bg-white/10 transition-all"><i class="ti ti-brand-whatsapp text-lg"></i>WhatsApp ile Yazın</a>
+                        <a href="tel:+905392946066" class="flex items-center justify-center gap-3 w-full px-8 py-4 bg-blue-600 text-white font-bold rounded-[20px] hover:bg-blue-700 transition-all"><i class="ti ti-phone text-lg"></i>0539 294 60 66</a>
+                        <a href="https://wa.me/905392946066?text=Merhaba%2C%20Silivri%20evden%20eve%20nakliyat%20teklifi%20almak%20istiyorum." target="_blank" rel="nofollow noopener noreferrer" class="flex items-center justify-center gap-3 w-full px-8 py-4 border border-white/20 text-white font-medium rounded-[20px] hover:bg-white/10 transition-all"><i class="ti ti-brand-whatsapp text-lg"></i>WhatsApp ile Yazın</a>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- ============ SEO CONTENT ============ -->
-        <section class="py-24 px-6 lg:px-16">
+        <section class="py-20 px-6 lg:px-16">
             <div class="max-w-3xl mx-auto">
                 <h2 class="font-display text-3xl md:text-4xl font-semibold leading-none mb-8 reveal">Silivri Evden Eve Nakliyat Hakkında Bilmeniz Gerekenler</h2>
                 <div class="space-y-5 text-zinc-600 leading-relaxed reveal">
@@ -231,7 +231,7 @@
         </section>
 
         <!-- ============ FAQ ============ -->
-        <section class="py-24 px-6 lg:px-16 bg-zinc-50">
+        <section class="py-20 px-6 lg:px-16 bg-zinc-50">
             <div class="max-w-3xl mx-auto">
                 <h2 class="font-display text-3xl md:text-4xl font-semibold leading-tight mb-12 reveal">Sıkça Sorulan Sorular</h2>
                 <div class="border-t border-zinc-200">
@@ -244,7 +244,7 @@
         </section>
 
         <!-- ============ OTHER SERVICES ============ -->
-        <section class="py-24 px-6 lg:px-16">
+        <section class="py-20 px-6 lg:px-16">
             <div class="max-w-[1400px] mx-auto">
                 <p class="text-[11px] uppercase tracking-[0.3em] text-blue-600 font-bold mb-10 reveal">Diğer Hizmetlerimiz</p>
                 <div class="border-t border-zinc-200">
@@ -269,8 +269,8 @@
                 <div class="reveal reveal-d1">
                     <p class="text-zinc-500 mb-8 max-w-md">Ücretsiz keşif ve fiyat teklifi için hemen bizi arayın veya WhatsApp'tan yazın.</p>
                     <div class="flex flex-wrap gap-4">
-                        <a href="tel:+905392946066" class="inline-flex items-center gap-3 px-8 py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-all"><i class="ti ti-phone text-lg"></i>0539 294 60 66</a>
-                        <a href="https://wa.me/905392946066?text=Merhaba%2C%20Silivri%20evden%20eve%20nakliyat%20teklifi%20almak%20istiyorum." target="_blank" rel="nofollow noopener noreferrer" class="inline-flex items-center gap-3 px-8 py-4 border border-white/30 text-white font-bold rounded-lg hover:bg-white/10 transition-all"><i class="ti ti-brand-whatsapp text-lg"></i>WhatsApp</a>
+                        <a href="tel:+905392946066" class="inline-flex items-center gap-3 px-8 py-4 bg-blue-600 text-white font-bold rounded-[20px] hover:bg-blue-700 transition-all"><i class="ti ti-phone text-lg"></i>0539 294 60 66</a>
+                        <a href="https://wa.me/905392946066?text=Merhaba%2C%20Silivri%20evden%20eve%20nakliyat%20teklifi%20almak%20istiyorum." target="_blank" rel="nofollow noopener noreferrer" class="inline-flex items-center gap-3 px-8 py-4 border border-white/30 text-white font-bold rounded-[20px] hover:bg-white/10 transition-all"><i class="ti ti-brand-whatsapp text-lg"></i>WhatsApp</a>
                     </div>
                 </div>
             </div>
