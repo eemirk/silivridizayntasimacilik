@@ -54,10 +54,12 @@
   status = 200
 
 # Headers for performance
+# Not: gorseller/logo gibi dosyalar zaman zaman ayni isimle guncelleniyor,
+# bu yuzden 1 yillik immutable cache yerine makul bir sure kullaniyoruz
 [[headers]]
   for = "/assets/*"
   [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
+    Cache-Control = "public, max-age=86400, must-revalidate"
 
 # styles.css degisir ama dosya adi sabit kaliyor - agresif immutable cache'i eziyoruz
 # ki her deploy'dan sonra tarayicilar eski CSS'te takili kalmasin
