@@ -9,6 +9,11 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
 RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
 RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
 
+# /blog hem sayfa hem klasor adi oldugu icin (blog/ altinda yazilar var),
+# genel kuraldan once ozel olarak eslestirilmeli - yoksa "!-d" sarti
+# klasor var diye devreye girmiyor ve sayfa acilmiyor
+RewriteRule ^blog/?$ blog.html [L]
+
 # .html uzantisi olmadan temiz URL erisimi
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
